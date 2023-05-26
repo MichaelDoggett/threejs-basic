@@ -3,7 +3,7 @@ import * as THREE from 'https://unpkg.com/three@0.127.0/build/three.module.js'
 const scene = new THREE.Scene()
 
 const geometry = new THREE.BoxGeometry(1,1,1)
-const material = new THREE.MeshBasicMaterial({ color:0xff0000 })
+const material = new THREE.MeshBasicMaterial({ color:0x0000ff })
 const mesh     = new THREE.Mesh(geometry,material)
 
 scene.add(mesh)
