@@ -3,9 +3,8 @@ import * as THREE from 'https://unpkg.com/three@0.127.0/build/three.module.js'
 const scene = new THREE.Scene()
 
 const geometry = new THREE.BoxGeometry(1,1,1)
-const material = new THREE.MeshBasicMaterial({ color:0x0000ff })
+const material = new THREE.MeshNormalMaterial()
 const mesh     = new THREE.Mesh(geometry,material)
-
 scene.add(mesh)
 
 // Sizes
@@ -19,10 +18,13 @@ scene.add(camera)
 const renderer = new THREE.WebGLRenderer()
 
 renderer.setSize(sizes.width,sizes.height)
+renderer.setAnimationLoop( animate )
 document.body.appendChild(renderer.domElement);
 
-function animate(){
-    requestAnimationFrame(animate)
+function animate(time){
+//    requestAnimationFrame(animate)
+    mesh.rotation.x = time / 2000;
+    mesh.rotation.y = time / 1000;
     renderer.render(scene,camera)
 }
-animate()
+
